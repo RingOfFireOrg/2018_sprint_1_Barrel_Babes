@@ -1,6 +1,13 @@
+#include <servo.h>
+#include <>
+
+#define 
+#define 
+
+
 const int kPinReedSwitch = 3;
 const int kPinServo1 = 9;
-const into kPinServo2 = 10;
+const int kPinServo2 = 10;
 
 void setup() {
     pinMode(kPinReedSwitch, INPUT);
@@ -11,8 +18,10 @@ void setup() {
 
 void loop() {
 
-    if(digitalRead(kPinReedSwitch == LOW){
+    if(digitalRead(kPinReedSwitch == LOW)){
 
     }
 
 }
+
+
