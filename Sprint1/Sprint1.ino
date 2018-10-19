@@ -1,9 +1,6 @@
 #include <servo.h>
 #include <>
 
-#define 
-#define 
-
 
 const int kPinReedSwitch = 3;
 const int kPinServo1 = 9;
