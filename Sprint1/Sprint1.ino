@@ -9,6 +9,9 @@ const int kPinReedSwitch = 3;
 const int kPinServo1 = 10;
 const int kPinServo2 = 9;
 const int kPinButton = 12;
+const int redPin = 5;
+const int greenPin = 6;
+const int bluePin = 7;
 
 Servo servoRight;
 Servo servoLeft;
@@ -48,6 +51,20 @@ void backward(){
         servoRight.write(0);
         servoLeft.write(180);
 }
+
+void blinkBlue(){
+    analogWrite(bluePin, 255);
+    analogWrite(greenPin, 0);
+    analogWrite(redPin, 0);
+}
+
+void blinkOff(){
+    analogWrite(bluePin, 0);
+    analogWrite(greenPin, 0);
+    analogWrite(redPin, 0);
+}
+
+
 bool started = false;
 void loop() {
     if (digitalRead(12) == LOW) {
@@ -66,7 +83,9 @@ void loop() {
             delay(10);
         } else {
             stop();
+            blinkBlue();
             delay(2000);
+            blinkOff();
             forward();
             delay(500);
             magnetnumb += 1;
@@ -81,7 +100,7 @@ void loop() {
             backward();
             delay(50);
             stop();
-            delay(100000);
+            delay(100000000);
         
         }
 
