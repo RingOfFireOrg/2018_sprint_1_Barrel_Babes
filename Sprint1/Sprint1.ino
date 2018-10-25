@@ -48,8 +48,16 @@ void backward(){
         servoRight.write(0);
         servoLeft.write(180);
 }
-
+bool started = false;
 void loop() {
+    if (digitalRead(12) == LOW) {
+        started = true;
+    }
+
+
+    if (started == false){
+        return;
+    }
     int reading = digitalRead(kPinReedSwitch);
 
     if (magnetnumb < 4){

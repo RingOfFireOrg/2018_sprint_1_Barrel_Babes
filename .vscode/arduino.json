@@ -1,5 +1,5 @@
 {
     "sketch": "Sprint1\\Sprint1.ino",
     "board": "arduino:avr:uno",
-    "port": "COM6"
+    "port": "COM7"
 }
