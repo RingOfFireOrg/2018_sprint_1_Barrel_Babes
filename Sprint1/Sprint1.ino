@@ -52,17 +52,31 @@ void backward(){
         servoLeft.write(180);
 }
 
-void blinkBlue(){
+void ledBlue(){
     analogWrite(bluePin, 255);
     analogWrite(greenPin, 0);
     analogWrite(redPin, 0);
 }
 
-void blinkOff(){
+void ledOff(){
     analogWrite(bluePin, 0);
     analogWrite(greenPin, 0);
     analogWrite(redPin, 0);
 }
+
+void blinkBlue(){
+    loop();{
+        analogWrite(bluePin, 255);
+        analogWrite(greenPin, 0);
+        analogWrite(redPin, 0);
+        delay(500);
+        analogWrite(bluePin, 0);
+        analogWrite(greenPin, 0);
+        analogWrite(redPin, 0);
+        delay(500);
+    }
+}
+
 
 
 bool started = false;
@@ -83,9 +97,9 @@ void loop() {
             delay(10);
         } else {
             stop();
-            blinkBlue();
+            ledBlue();
             delay(2000);
-            blinkOff();
+            ledOff();
             forward();
             delay(500);
             magnetnumb += 1;
@@ -99,6 +113,10 @@ void loop() {
             delay(10);
             backward();
             delay(50);
+            stop();
+            delay(50);
+            ledBlue();
+            delay(500);
             stop();
             delay(100000000);
         
